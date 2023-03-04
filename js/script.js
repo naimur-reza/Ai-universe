@@ -3,20 +3,13 @@ const loadData = () => {
   const URL = `https://openapi.programming-hero.com/api/ai/tools`;
   fetch(URL)
     .then((res) => res.json())
-    .then((data) => displayData(data.data.tools));
+    .then((data) => displayData(data.data.tools.slice(0,6)));
 };
 loadSpinner(true);
-const displayData = (data, dataLimit) => {
+const displayData = (data) => {
   // Get the container
   const container = document.getElementById("card-container");
-
-  const showAll = document.getElementById("show-all");
-  if (dataLimit && data.length > 6) {
-    data = data.slice(0, 6);
-    showAll.classList.remove("hidden");
-  } else {
-    showAll.classList.add("hidden");
-  }
+  container.innerHTML = ``;
 
   // For each element from array
   data.forEach((card) => {
@@ -24,6 +17,7 @@ const displayData = (data, dataLimit) => {
     const { name, description, image, published_in, features, id } = card;
 
     // Lets add data into card and append to main container
+  
     container.innerHTML += `
         <div class=" w-fit p-5 rounded-lg shadow-2xl">
         <img class="rounded-lg w-96" src="${image}" alt="">
@@ -62,7 +56,6 @@ const showModal = (id) => {
 
 const displayModalData = (data) => {
   // A function that returns a string
-
   const templateFunction = () => {
     if (accuracy.score) {
       template = `<p id="accuracy" class="absolute top-6 right-7 bg-red-600 font-semibold text-white py-2 px-3 rounded-lg">${
@@ -155,7 +148,14 @@ ${templateFunction()}
 </div>
 </div>
   `;
-  document.getElementById("show-all").addEventListener("click", function () {
-    processData(6);
-  });
+
 };
+
+const showAll = () => {
+  const URL = `https://openapi.programming-hero.com/api/ai/tools`;
+  fetch(URL)
+    .then((res) => res.json())
+    .then((data) => displayData(data.data.tools));
+    const showAllButton = document.getElementById('show-all')
+    showAllButton.classList.add('hidden')
+}
