@@ -59,7 +59,7 @@ const displayModalData = (data) => {
   const templateFunction = () => {
     if (accuracy.score) {
       template = `<p id="accuracy" class="absolute top-6 right-7 bg-red-600 font-semibold text-white py-2 px-3 rounded-lg">${
-        accuracy.score * 100 + " " + "Accuracy"
+        accuracy.score * 100 + " % " + "Accuracy"
       }</p>`;
     } else {
       template = "";
