@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>AI Universe</title>
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@2.51.3/dist/full.css"
       rel="stylesheet"
@@ -17,21 +17,22 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <!-- Header goes from here -------------------------------------->
-
-  <header id="header" class="py-5">
-    <h1 class="text-3xl text-center font-bold">Ai Universe Hub</h1>
-    <button
-      id="sort-btn"
-      class="mx-auto block bg-orange-400 py-3 px-5 rounded-lg text-white font-semibold my-4 hover:bg-orange-500 transition-all"
-    >
-      Sort By Date
-    </button>
-  </header>
 
   <!-- Body goes from here -------------------------------------->
 
   <body onload="loadData()">
+    <!-- Header goes from here -------------------------------------->
+
+    <header id="header" class="py-5">
+      <h1 class="text-3xl text-center font-bold">Ai Universe Hub</h1>
+      <button
+        id="sort-btn"
+        class="mx-auto block bg-orange-400 py-3 px-5 rounded-lg text-white font-semibold my-4 hover:bg-orange-500 transition-all"
+        onclick="sortButton()"
+      >
+        Sort By Date
+      </button>
+    </header>
     <!-- SPinner Section -->
 
     <div role="status" id="spinner" class="flex justify-center mt-64">
@@ -74,7 +75,7 @@
     </section>
     <!-- Script file -->
     <script src="./js/spinner.js"></script>
+    <script src="./js/sort.js"></script>
     <script src="./js/script.js"></script>
-    <script src="./js/feature.js"></script>
   </body>
 </html>
